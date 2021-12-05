@@ -6,14 +6,29 @@ var  criteria = {
   specialCharacters: "!#$%&'()*+,-./:;<=>?@[]^_`{|}~",
   numbers: "123456789"
 };
+//array function
+var getCriteria = {
+  getLowerCase: function() {
+    return criteria.lowerCase[Math.floor(Math.random() * criteria.lowerCase.length)];
+  },
+  getUpperCase: function() {
+    return criteria.upperCase[Math.floor(Math.random() * criteria.upperCase.length)];
+  },
+  getSpecialCharacters: function() {
+    return criteria.specialCharacters[Math.floor(Math.random() * criteria.specialCharacters.length)];
+  },
+  getNumbers: function() {
+    return criteria.numbers[Math.floor(Math.random() * criteria.numbers.length)];
+  }
+};
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  
   passwordText.value = password;
-
-}
-
+};
+//generate password
 function generatePassword() {
   var lowerCasePassword = window.confirm("Do you want lower cases in your password?");
   var upperCasePassword = window.confirm("Do you want upper cases in your password?");
@@ -25,51 +40,44 @@ function generatePassword() {
   var minimumUpperCasePassword = "";
   var minimumNumbersPassword = "";
   var minimumSpecialCharactersPassword = "";
-  var getCriteria = [
-    function lowerCase() {
-      return criteria.lowerCase[Math.floor(Math.random() * criteria.lowerCase.length)];
-    },
-    function upperCase() {
-      return criteria.upperCase[Math.floor(Math.random() * criteria.upperCase.length)];
-    },
-    function specialCharacters() {
-      return criteria.specialCharacters[Math.floor(Math.random() * criteria.specialCharacters.length)];
-    },
-    function numbers() {
-      return criteria.numbers[Math.floor(Math.random() * criteria.numbers.length)];
-    },
-];
+  if (lowerCasePassword === true) {
+    minimumLowerCasePassword = getCriteria.getLowerCase();
+    minimumCount++;
+  }
+  if (upperCasePassword === true) {
+    minimumUpperCasePassword = getCriteria.getUpperCase();
+    minimumCount++;
+  }
+  if (numbersPassword === true) {
+    minimumNumbersPassword = getCriteria.getNumbers();
+    minimumCount++;
+  }
+  if (specialCharactersPassword === true) {
+    minimumSpecialCharactersPassword = getCriteria.getSpecialCharacters();
+    minimumCount++;
+  }
+  var randomPasswordGenerated = "";
+  for (i=0; i < parseInt(lengthPassword) - minimumCount; i++) {
+    var randomNumberPicked = Math.floor(Math.random() * 4);
+  }
+  randomPasswordGenerated += minimumNumbersPassword;
+  randomPasswordGenerated += minimumLowerCasePassword;
+  randomPasswordGenerated += minimumUpperCasePassword;
+  randomPasswordGenerated += minimumSpecialCharactersPassword;
 
-if (lowerCasePassword === true) {
-  //add lower cases to pword
-} else {
-  //no lower cases to pword
-};
-if (upperCasePassword === true) {
-  //add uper cases to pword
-} else {
-  //no upper cases to pword
-};
-if (numbersPassword === true) {
-  //add
-} else {
-  //no
-};
-if (specialCharactersPassword === true) {
-  //add
-} else {
-  //no
-};
-if (lengthPassword === true) {
-// Add event listener to generate button
+  return randomPasswordGenerated;
 };
 
 generateBtn.addEventListener("click", writePassword);
 
+// line 60 for (i=0; i < parseInt(lengthPassword) - minimnumCount; i++) {
+//  var randomNumberPicked = Math.floor(Math.random() * 4);
+
+// line 62 randomPasswordGenerated += randomNumberPicked;
 
 
-
-
+// var randomNumberPicked = Math.floor(Math.random() * 4);
+// randomPasswordGenerated += password.charAt(Math.floor(Math.random() * lengthPassword.length));
 
 // click on button generate prompts for password criteria
 // select criteria to use
