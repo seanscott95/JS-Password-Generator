@@ -72,12 +72,3 @@ function generatePassword() {
 };
 
 generateBtn.addEventListener("click", writePassword);
-
-// pseudocode
-// click on button generate prompts for password criteria
-// select criteria to use
-// prompt length between 8 and 128 char
-// prompt to use lowercase, uppercase, numeric, and/or special characters
-// with each prompt my input should be validated and at least one character type should be selected
-// generate password once all prompts answered
-// display page as an alert or written to page
