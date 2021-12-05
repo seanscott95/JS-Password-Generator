@@ -6,21 +6,6 @@ var  criteria = {
   specialCharacters: "!#$%&'()*+,-./:;<=>?@[]^_`{|}~",
   numbers: "123456789"
 };
-
-var getCriteria = [
-  function lowerCase() {
-    return criteria.lowerCase[Math.floor(Math.random() * criteria.lowerCase.length)];
-  },
-  function upperCase() {
-    return criteria.upperCase[Math.floor(Math.random() * criteria.upperCase.length)];
-  },
-  function specialCharacters() {
-    return criteria.specialCharacters[Math.floor(Math.random() * criteria.specialCharacters.length)];
-  },
-  function numbers() {
-    return criteria.numbers[Math.floor(Math.random() * criteria.numbers.length)];
-  },
-];
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -35,7 +20,25 @@ function generatePassword() {
   var numbersPassword = window.confirm("Do you want numbers in your password?");
   var specialCharactersPassword = window.confirm("Do you want special characters in your password?");
   var lengthPassword = window.prompt("Between 8 and 128 characters what length do you want your password?");
-};
+  var minimumCount = 0;
+  var minimumLowerCasePassword = "";
+  var minimumUpperCasePassword = "";
+  var minimumNumbersPassword = "";
+  var minimumSpecialCharactersPassword = "";
+  var getCriteria = [
+    function lowerCase() {
+      return criteria.lowerCase[Math.floor(Math.random() * criteria.lowerCase.length)];
+    },
+    function upperCase() {
+      return criteria.upperCase[Math.floor(Math.random() * criteria.upperCase.length)];
+    },
+    function specialCharacters() {
+      return criteria.specialCharacters[Math.floor(Math.random() * criteria.specialCharacters.length)];
+    },
+    function numbers() {
+      return criteria.numbers[Math.floor(Math.random() * criteria.numbers.length)];
+    },
+];
 
 if (lowerCasePassword === true) {
   //add lower cases to pword
