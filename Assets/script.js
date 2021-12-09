@@ -57,4 +57,10 @@ function generatePassword() {
     counterSpecialCharacters = getCriteria.getSpecialCharacters();
     counter++;
   }
+
+var finishedPassword = "";
+for (i=0; i < (parseInt(lengthPassword) - counter); i++) {
+  var passwordLengthChoice = Math.floor(Math.random() * 4);
+  finishedPassword += passwordLengthChoice;
+}
 };
