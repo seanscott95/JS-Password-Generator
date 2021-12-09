@@ -1,4 +1,4 @@
-// Assignment Code
+// Linking button and creating various password choices
 var generateBtn = document.querySelector("#generate");
 var  criteria = {
   lowerCase: "abcdefghijklmnopqrstuvwxyz",
@@ -6,7 +6,7 @@ var  criteria = {
   specialCharacters: "!#$%&'()*+,-./:;<=>?@[]^_`{|}~",
   numbers: "123456789"
 };
-//array function
+// Password array function
 var getCriteria = {
   getLowerCase: function() {
     return criteria.lowerCase[Math.floor(Math.random() * criteria.lowerCase.length)];
@@ -21,13 +21,13 @@ var getCriteria = {
     return criteria.numbers[Math.floor(Math.random() * criteria.numbers.length)];
   }
 };
-// Write password to the #password input
+// Linking password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 };
-//generate password
+// Creating function to generate password
 function generatePassword() {
   var lowerCasePassword = window.confirm("Do you want lower cases in your password?");
   var upperCasePassword = window.confirm("Do you want upper cases in your password?");
@@ -40,4 +40,21 @@ function generatePassword() {
   var counterUpperCase = "";
   var counterNumbers = "";
   var counterSpecialCharacters = "";
+  
+  if (lowerCasePassword === true) {
+    counterLowerCase = getCriteria.getLowerCase();
+    counter++;
+  }
+  if (upperCasePassword === true) {
+    counterUpperCase = getCriteria.getUpperCase();
+    counter++;
+  }
+  if (numbersPassword === true) {
+    counterNumbers = getCriteria.getNumbers();
+    counter++;
+  }
+  if (specialCharactersPassword === true) {
+    counterSpecialCharacters = getCriteria.getSpecialCharacters();
+    counter++;
+  }
 };
