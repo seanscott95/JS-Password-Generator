@@ -34,3 +34,10 @@ function generatePassword() {
   var numbersPassword = window.confirm("Do you want numbers in your password?");
   var specialCharactersPassword = window.confirm("Do you want special characters in your password?");
   var lengthPassword = window.prompt("Between 8 and 128 characters what length do you want your password?");
+
+  var counter = 0;
+  var counterLowerCase = "";
+  var counterUpperCase = "";
+  var counterNumbers = "";
+  var counterSpecialCharacters = "";
+};
