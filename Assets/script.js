@@ -25,6 +25,7 @@ var getCriteria = {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  
   passwordText.value = password;
 };
 // Creating function to generate password
@@ -57,10 +58,19 @@ function generatePassword() {
     counterSpecialCharacters = getCriteria.getSpecialCharacters();
     counter++;
   }
+  
+  var finishedPassword = "";
+  for (i=0; i < (parseInt(lengthPassword) - counter); i++) {
+    var passwordLengthChoice = Math.floor(Math.random() * 4);
+    finishedPassword += passwordLengthChoice;
+  }
 
-var finishedPassword = "";
-for (i=0; i < (parseInt(lengthPassword) - counter); i++) {
-  var passwordLengthChoice = Math.floor(Math.random() * 4);
-  finishedPassword += passwordLengthChoice;
-}
+  finishedPassword += counterNumbers;
+  finishedPassword += counterLowerCase;
+  finishedPassword += counterUpperCase;
+  finishedPassword += counterSpecialCharacters;
+
+  return finishedPassword;
 };
+
+generateBtn.addEventListener("click", writePassword);
